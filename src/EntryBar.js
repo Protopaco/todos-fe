@@ -16,6 +16,7 @@ export default class EntryBar extends Component {
                     label="Task to complete"
                     id="name-entry"
                     style={{ width: '80%' }}
+                    value={this.props.nameEntry}
                     onChange={(e) => (this.handleChange({ addTaskName: e.target.value }))}
                 />
                 <TextField
@@ -25,6 +26,7 @@ export default class EntryBar extends Component {
                     type="number"
                     min={0}
                     max={10}
+                    value={this.props.priorityEntry}
                     onChange={(e) => (this.handleChange({ addTaskPriority: e.target.value }))}
 
                 />

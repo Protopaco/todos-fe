@@ -39,6 +39,11 @@ export default class Todos extends Component {
             });
             this.refreshList();
 
+            this.setState({
+                addTaskName: '',
+                addTaskPriority: '',
+            })
+
         } catch (e) {
             alert(e.message)
         }
@@ -63,6 +68,8 @@ export default class Todos extends Component {
                     <EntryBar
                         handleChangeAddTask={this.handleChangeAddTask}
                         handleAddTask={this.handleAddTask}
+                        nameEntry={this.state.addTaskName}
+                        priorityEntry={this.state.addTaskPriority}
                     />
                     {this.state.loading
                         ?
