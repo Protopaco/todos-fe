@@ -7,7 +7,7 @@ import { fetchAuthSignUp } from './FetchSuite.js'
 
 
 export default class SignUp extends Component {
-    cardLabel = 'Sign Up';
+    cardLabel = 'SIGN UP';
 
     state = {
         email: '',
@@ -15,22 +15,17 @@ export default class SignUp extends Component {
     }
 
     handleClick = async () => {
-        console.log('------------------------------------');
-        console.log(`this.state.email:  ${this.state.email}`);
-        console.log('------------------------------------');
-        console.log('------------------------------------');
-        console.log(`this.state.password:  ${this.state.password}`);
-        console.log('------------------------------------');
-
-        const returnedObject = await fetchAuthSignUp({
-            email: this.state.email,
-            password: this.state.password
-        });
-        console.log(returnedObject)
-        this.props.handleStateChange({
-            email: returnedObject.email,
-            token: returnedObject.token
-        })
+        try {
+            const returnedObject = await fetchAuthSignUp({
+                email: this.state.email,
+                password: this.state.password
+            });
+            console.log(returnedObject.body);
+            this.props.handleStateChange(returnedObject.body.email, returnedObject.body.token)
+            this.props.history.push('/');
+        } catch (e) {
+            alert(e.message)
+        }
     }
 
     render() {

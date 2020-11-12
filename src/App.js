@@ -10,13 +10,30 @@ import {
 } from 'react-router-dom';
 
 export default class App extends Component {
+
   state = {
-    token: '',
-    email: ''
+    token: localStorage.getItem('TOKEN') || '',
+    email: localStorage.getItem('EMAIL') || '',
   }
 
-  handleStateChange = (passedState) => {
-    this.setState = (passedState);
+  handleStateChange = (email, token) => {
+    localStorage.setItem('TOKEN', token);
+    localStorage.setItem('EMAIL', email);
+
+    this.setState({
+      token: token,
+      email: email
+    })
+  }
+
+  handleLogout = () => {
+    localStorage.setItem('TOKEN', '');
+    localStorage.setItem('EMAIL', '');
+
+    this.setState({
+      token: '',
+      email: ''
+    })
   }
 
   render() {
@@ -24,7 +41,8 @@ export default class App extends Component {
       <div className="searchpage-main">
         <Router>
           <Header
-            baseState={this.state}
+            email={this.state.email}
+            handleLogout={this.handleLogout}
           />
           <Switch>
             <Route

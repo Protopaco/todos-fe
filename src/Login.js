@@ -7,21 +7,25 @@ import { fetchAuthLogin } from './FetchSuite.js'
 
 
 export default class Login extends Component {
-    cardLabel = 'Login';
+    cardLabel = 'LOGIN';
     state = {
         email: '',
         password: '',
     }
 
-    handleClick = () => {
-        const returnedObject = fetchAuthLogin({
-            email: this.state.email,
-            password: this.state.password
-        })
-        this.props.handleStateChange({
-            email: returnedObject.email,
-            token: returnedObject.token
-        })
+    handleClick = async () => {
+        try {
+            const returnedObject = await fetchAuthLogin({
+                email: this.state.email,
+                password: this.state.password
+            })
+            this.props.handleStateChange({
+                email: returnedObject.email,
+                token: returnedObject.token
+            })
+        } catch (e) {
+            alert(e.message)
+        }
     }
 
     render() {
