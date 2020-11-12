@@ -23,6 +23,8 @@ export default class Login extends Component {
                 email: returnedObject.email,
                 token: returnedObject.token
             })
+            this.props.history.push('/todos');
+
         } catch (e) {
             alert(e.message)
         }

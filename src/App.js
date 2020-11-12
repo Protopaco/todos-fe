@@ -3,6 +3,8 @@ import Header from './Header.js';
 import LandingPage from './LandingPage.js';
 import Login from './Login.js'
 import SignUp from './SignUp.js'
+import PrivateRoute from './PrivateRoute.js';
+import Todos from './Todos.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -67,6 +69,14 @@ export default class App extends Component {
 
               />}
             />
+            <PrivateRoute
+              exact
+              path='/todos'
+              token={this.state.token}
+              render={(routerProps) => <Todos
+                {...routerProps}
+                token={this.state.token}
+              />} />
           </Switch>
         </Router>
       </div >

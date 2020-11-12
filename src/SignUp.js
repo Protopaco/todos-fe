@@ -22,7 +22,7 @@ export default class SignUp extends Component {
             });
             console.log(returnedObject.body);
             this.props.handleStateChange(returnedObject.body.email, returnedObject.body.token)
-            this.props.history.push('/');
+            this.props.history.push('/todos');
         } catch (e) {
             alert(e.message)
         }
