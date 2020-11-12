@@ -24,3 +24,9 @@ export async function fetchPostTodo(token, todoObject) {
         .send(todoObject);
 }
 
+export async function fetchPutTodo(token, objectId) {
+    return await fetch.put(API_URL + '/api/todos/' + objectId)
+        .set({ Authorization: token })
+}
+
+

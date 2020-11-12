@@ -6,8 +6,8 @@ export default class Header extends Component {
     render() {
         return (
             <div style={{ flexGrow: 1 }}>
-                <AppBar position="static">
-                    <Toolbar>
+                <AppBar position="static" >
+                    <Toolbar >
                         <Typography variant='h6' edge='start' style={{ flexGrow: 1 }}>TO-DO</Typography>
                         {
                             this.props.email

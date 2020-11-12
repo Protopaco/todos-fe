@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Paper } from '@material-ui/core';
-import { landingPagePaperStyling } from './constants.js'
+import { landingPagePaperStyling, backgroundDiv } from './constants.js'
 import AuthCard from './AuthCard.js';
 import { fetchAuthLogin } from './FetchSuite.js'
 
@@ -32,13 +32,16 @@ export default class Login extends Component {
 
     render() {
         return (
-            <Paper style={landingPagePaperStyling}>
-                <AuthCard
-                    cardLabel={this.cardLabel}
-                    state={this.state}
-                    handleClick={this.handleClick}
-                />
-            </Paper >
+            <div style={backgroundDiv}>
+
+                <Paper style={landingPagePaperStyling}>
+                    <AuthCard
+                        cardLabel={this.cardLabel}
+                        state={this.state}
+                        handleClick={this.handleClick}
+                    />
+                </Paper >
+            </div>
         )
     }
 }
