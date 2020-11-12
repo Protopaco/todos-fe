@@ -20,7 +20,6 @@ export default class App extends Component {
   }
 
   handleStateChange = (email, token) => {
-    console.log(email)
     localStorage.setItem('TOKEN', token);
     localStorage.setItem('EMAIL', email);
 

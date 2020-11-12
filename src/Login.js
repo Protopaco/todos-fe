@@ -20,7 +20,6 @@ export default class Login extends Component {
                 password: this.state.password
             })
 
-            console.log(returnedObject)
             this.props.handleStateChange(
                 returnedObject.body.email,
                 returnedObject.body.token
