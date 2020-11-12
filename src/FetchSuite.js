@@ -9,7 +9,6 @@ export async function fetchAuthSignUp(signUpObject) {
 }
 
 export async function fetchAuthLogin(loginObject) {
-    console.log(loginObject)
     return await fetch.post(API_URL + '/auth/signin')
         .send(loginObject);
 }
