@@ -5,6 +5,7 @@ import Login from './Login.js'
 import SignUp from './SignUp.js'
 import PrivateRoute from './PrivateRoute.js';
 import Todos from './Todos.js';
+import './App.css';
 import {
   BrowserRouter as Router,
   Route,

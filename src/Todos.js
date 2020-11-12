@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { backgroundDiv, landingPagePaperStyling } from './constants.js'
+import { backgroundDiv, listPagePaperStyling } from './constants.js'
 import { Paper, List, Divider } from '@material-ui/core';
 import { fetchAllTodos, fetchPostTodo, fetchPutTodo } from './FetchSuite.js';
 import TodoItem from './TodoItem.js';
@@ -64,7 +64,7 @@ export default class Todos extends Component {
     render() {
         return (
             <div style={backgroundDiv}>
-                <Paper style={landingPagePaperStyling}>
+                <Paper style={listPagePaperStyling}>
                     <EntryBar
                         handleChangeAddTask={this.handleChangeAddTask}
                         handleAddTask={this.handleAddTask}

@@ -5,6 +5,15 @@ export const landingPagePaperStyling = {
     width: '600px',
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+}
+
+export const listPagePaperStyling = {
+    height: '100vh',
+    width: '600px',
+    display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'start',
     alignItems: 'center'
 }
@@ -12,6 +21,8 @@ export const landingPagePaperStyling = {
 export const landingPageLogoStyling = {
     height: '500px',
     width: 'auto',
+    justifySelf: 'center',
+    alignSelf: 'center',
 }
 
 export const loginCardStyling = {

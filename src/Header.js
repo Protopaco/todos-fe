@@ -8,12 +8,20 @@ export default class Header extends Component {
             <div style={{ flexGrow: 1 }}>
                 <AppBar position="static" >
                     <Toolbar >
-                        <Typography variant='h6' edge='start' style={{ flexGrow: 1 }}>TO-DO</Typography>
+                        <Typography
+                            variant='h6'
+                            edge='start'
+                            style={{ flexGrow: 1 }}
+                            component={Link}
+                            to='/todos/'
+                        >TO-DO</Typography>
                         {
                             this.props.email
                                 ?
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                                    <Typography variant="h6">
+                                    <Typography
+                                        variant="h6"
+                                    >
                                         {this.props.email}
                                     </Typography>
                                     <Button
