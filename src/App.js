@@ -3,6 +3,9 @@ import Header from './Header.js';
 import LandingPage from './LandingPage.js';
 import Login from './Login.js'
 import SignUp from './SignUp.js'
+import PrivateRoute from './PrivateRoute.js';
+import Todos from './Todos.js';
+import './App.css';
 import {
   BrowserRouter as Router,
   Route,
@@ -10,13 +13,30 @@ import {
 } from 'react-router-dom';
 
 export default class App extends Component {
+
   state = {
-    token: '',
-    email: ''
+    token: localStorage.getItem('TOKEN') || '',
+    email: localStorage.getItem('EMAIL') || '',
   }
 
-  handleStateChange = (passedState) => {
-    this.setState = (passedState);
+  handleStateChange = (email, token) => {
+    localStorage.setItem('TOKEN', token);
+    localStorage.setItem('EMAIL', email);
+
+    this.setState({
+      token: token,
+      email: email
+    })
+  }
+
+  handleLogout = () => {
+    localStorage.setItem('TOKEN', '');
+    localStorage.setItem('EMAIL', '');
+
+    this.setState({
+      token: '',
+      email: ''
+    })
   }
 
   render() {
@@ -24,7 +44,8 @@ export default class App extends Component {
       <div className="searchpage-main">
         <Router>
           <Header
-            baseState={this.state}
+            email={this.state.email}
+            handleLogout={this.handleLogout}
           />
           <Switch>
             <Route
@@ -49,6 +70,14 @@ export default class App extends Component {
 
               />}
             />
+            <PrivateRoute
+              exact
+              path='/todos'
+              token={this.state.token}
+              render={(routerProps) => <Todos
+                {...routerProps}
+                token={this.state.token}
+              />} />
           </Switch>
         </Router>
       </div >

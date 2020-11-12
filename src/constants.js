@@ -1,14 +1,28 @@
+const paleBlueBackground = '#c3cbe3';
+
 export const landingPagePaperStyling = {
     height: '100vh',
-    width: '100vw',
+    width: '600px',
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'center'
+}
+
+export const listPagePaperStyling = {
+    height: '100vh',
+    width: '600px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'start',
     alignItems: 'center'
 }
 
 export const landingPageLogoStyling = {
     height: '500px',
     width: 'auto',
+    justifySelf: 'center',
+    alignSelf: 'center',
 }
 
 export const loginCardStyling = {
@@ -25,4 +39,22 @@ export const cardContentStyling = {
 export const textFieldStyling = {
     width: '80%',
     marginTop: '50px'
+}
+
+export const backgroundDiv = {
+    width: '100vw',
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: paleBlueBackground
+}
+
+export const taskEntryDiv = {
+    display: 'flex',
+    width: '95%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: '20px',
+    justifySelf: "start",
+    marginTop: '20px',
+    marginBottom: '25px',
 }

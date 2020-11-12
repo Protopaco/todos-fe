@@ -6,22 +6,42 @@ export default class Header extends Component {
     render() {
         return (
             <div style={{ flexGrow: 1 }}>
-                <AppBar position="static">
-                    <Toolbar>
-                        <Typography variant='h6' edge='start' style={{ flexGrow: 1 }}>TO-DO</Typography>
-
-                        {/* this.props.baseState.token
+                <AppBar position="static" >
+                    <Toolbar >
+                        <Typography
+                            variant='h6'
+                            edge='start'
+                            style={{ flexGrow: 1 }}
+                            component={Link}
+                            to='/todos/'
+                        >TO-DO</Typography>
+                        {
+                            this.props.email
                                 ?
-                                this.props.baseState.email
-                                : */}
-                        <ButtonGroup variant="text"
-                            color="inherit"
-                            aria-label="outlined primary button group"
-                            style={{ justifySelf: 'end' }}>
-                            <Button aria-label="login" component={Link} to='/login'>Log In</Button>
-                            <Button aria-label="signup" component={Link} to='/signup'>Sign Up</Button>
-                        </ButtonGroup>
-
+                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                                    <Typography
+                                        variant="h6"
+                                    >
+                                        {this.props.email}
+                                    </Typography>
+                                    <Button
+                                        variant="outlined"
+                                        color="inherit"
+                                        aria-label="logout button"
+                                        style={{ marginLeft: '30px' }}
+                                        onClick={this.props.handleLogout}
+                                    >
+                                        Logout</Button>
+                                </div>
+                                :
+                                <ButtonGroup variant="outlined"
+                                    color="inherit"
+                                    aria-label="outlined primary button group"
+                                    style={{ justifySelf: 'end' }}>
+                                    <Button aria-label="login" component={Link} to='/login'>Log In</Button>
+                                    <Button aria-label="signup" component={Link} to='/signup'>Sign Up</Button>
+                                </ButtonGroup>
+                        }
                     </Toolbar>
                 </AppBar>
             </div >
