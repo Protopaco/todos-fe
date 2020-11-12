@@ -20,9 +20,11 @@ export default class SignUp extends Component {
                 email: this.state.email,
                 password: this.state.password
             });
-            console.log(returnedObject.body);
+
             this.props.handleStateChange(returnedObject.body.email, returnedObject.body.token)
+
             this.props.history.push('/todos');
+
         } catch (e) {
             alert(e.message)
         }

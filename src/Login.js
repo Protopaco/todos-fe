@@ -19,10 +19,12 @@ export default class Login extends Component {
                 email: this.state.email,
                 password: this.state.password
             })
+
             this.props.handleStateChange(
-                returnedObject.email,
-                returnedObject.token
+                returnedObject.body.email,
+                returnedObject.body.token
             )
+
             this.props.history.push('/todos');
 
         } catch (e) {
